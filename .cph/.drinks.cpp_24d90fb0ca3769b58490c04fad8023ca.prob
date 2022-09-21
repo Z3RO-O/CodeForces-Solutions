@@ -1,0 +1,1 @@
+{"name":"Local: drinks","url":"d:\\Code\\CodeForces\\drinks.cpp","tests":[{"id":1663350675483,"input":"4\n0 25 50 75","output":"37.500000000000"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Code\\CodeForces\\drinks.cpp","group":"local","local":true}
