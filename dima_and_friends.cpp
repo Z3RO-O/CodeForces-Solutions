@@ -3,34 +3,20 @@ using namespace std;
 
 int main()
 {
-    int n, a[100], sum_f = 0;
+    int n, a[100], sum_f = 0, ans = 0;
     cin >> n;
     for (int i = 0; i < n; i++)
     {
         cin >> a[i];
         sum_f += a[i];
     }
-    if (sum_f % 2 == 0)
+    for (int i = 1; i < 6; i++)
     {
-        if ((n + 1) % 2 != 0)
+        if ((sum_f + i) % (n + 1) != 1)
         {
-            cout << 3 << endl;
-        }
-        else
-        {
-            cout << 2 << endl;
+            ans++;
         }
     }
-    else
-    {
-        if ((n + 1) % 2 != 0)
-        {
-            cout << 2 << endl;
-        }
-        else
-        {
-            cout << 3 << endl;
-        }
-    }
+    cout << ans << endl;
     return 0;
 }
