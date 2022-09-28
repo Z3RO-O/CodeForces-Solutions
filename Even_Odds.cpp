@@ -34,7 +34,7 @@ int main()
         {
             cout << (k - (n / 2 + 2)) * 2 + 2 << endl;
         }
-        else if (k == n / 2 + 2)
+        else if (k == n / 2 + 2)q
         {
             cout << 2 << endl;
         }
