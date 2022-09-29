@@ -1,0 +1,1 @@
+{"name":"Local: BicycleChain","url":"d:\\Code\\CodeForces\\BicycleChain.cpp","tests":[{"id":1664459301673,"input":"4\n3 7 11 13\n4\n51 119 187 221","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Code\\CodeForces\\BicycleChain.cpp","group":"local","local":true}
