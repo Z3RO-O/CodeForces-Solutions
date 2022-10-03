@@ -1,37 +1,33 @@
 #include <iostream>
+#include <map>
 using namespace std;
 
 int main()
 {
-    int n, m, a[50], b[50], max = 0, min = 10001, count = 0;
+    int n, m, a[50], b[50];
     cin >> n;
+    map<int, int> max;
     for (int i = 0; i < n; i++)
     {
         cin >> a[i];
-        if (min > a[i])
-        {
-            min = a[i];
-        }
     }
     cin >> m;
     for (int i = 0; i < m; i++)
     {
         cin >> b[i];
-        if (max < b[i])
-        {
-            max = b[i];
-        }
     }
     for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < m; j++)
         {
-            if ((max / min) == (b[j] / a[i]) && b[j] % a[i] == 0)
+            if (b[j] % a[i] == 0)
             {
-                count++;
+                max[b[j] / a[i]]++;
             }
         }
     }
-    cout << count << endl;
+    auto it = max.end();
+    it--;
+    cout << (*it).second << endl;
     return 0;
 }
