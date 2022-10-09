@@ -12,18 +12,17 @@ int main()
     }
     sort(a, a + m);
     copy(a, a + m, b);
-    for (int i = m - 1; i >= 0;)
+    while (n--)
     {
-        max += a[i];
-        a[i]--;
-        n--;
-        if (a[i] == 0)
+        max += a[m - 1];
+        a[m - 1]--;
+        for (int i = m - 1; i > 0; i--)
         {
-            i--;
-        }
-        if (n == 0)
-        {
-            break;
+            if (a[i] >= a[i - 1])
+            {
+                break;
+            }
+            swap(a[i], a[i - 1]);
         }
     }
     for (int i = 0; i < m;)
