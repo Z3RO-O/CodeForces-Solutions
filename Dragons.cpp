@@ -1,32 +1,35 @@
 #include <iostream>
+#include <utility>
 #include <algorithm>
 using namespace std;
-
 int main()
 {
-    int s, n, x[1001], y[1001];
+    int s, n, x, y, f = 1;
+    pair<int, int> m[1000];
     cin >> s >> n;
-    int sum_strength = s, sum_dragon = 0;
     for (int i = 0; i < n; i++)
     {
-        cin >> x[i] >> y[i];
+        cin >> x >> y;
+        m[i].first = x;
+        m[i].second = y;
     }
-    sort(y, y + n);
-    if (n != 1&&s>x[])
+    sort(m, m + n);
+    for (int j = 0; j < n; j++)
     {
-        for (int i = 0; i < n - 1; i++)
+        if (m[j].first < s)
         {
-            sum_strength += y[i];
+            s += m[j].second;
         }
-        cout << "YES" << endl;
+        else
+        {
+            f = 0;
+            cout << "NO" << endl;
+            break;
+        }
     }
-    else if (n == 1 && x[0] <= s)
+    if (f == 1)
     {
         cout << "YES" << endl;
-    }
-    else
-    {
-        cout << "NO" << endl;
     }
     return 0;
 }

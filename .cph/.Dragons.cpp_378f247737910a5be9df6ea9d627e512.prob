@@ -1,0 +1,1 @@
+{"name":"Local: Dragons","url":"d:\\Code\\CodeForces\\Dragons.cpp","tests":[{"id":1664955915329,"input":"10 1\n100 100\n","output":""},{"id":1665055859914,"input":"5 10\n20 1\n4 3\n5 1\n100 1\n4 2\n101 1\n10 0\n10 2\n17 3\n12 84","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Code\\CodeForces\\Dragons.cpp","group":"local","local":true}
