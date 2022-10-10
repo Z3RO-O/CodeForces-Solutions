@@ -17,7 +17,7 @@ int main()
             sx++;
         else if (s[i] == 'W' && sx > ex)
             sx--;
-        if (ex == sx && ey == sy&&time<t)
+        if (ex == sx && ey == sy && time <= t)
         {
             cout << time << endl;
             pos = 1;
