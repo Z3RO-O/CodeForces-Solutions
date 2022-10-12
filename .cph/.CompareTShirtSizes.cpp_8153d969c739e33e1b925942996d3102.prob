@@ -1,0 +1,1 @@
+{"name":"Local: CompareTShirtSizes","url":"d:\\Code\\CodeForces\\CompareTShirtSizes.cpp","tests":[{"id":1665499507522,"input":"6\nXXXS XS\nXXXL XL\nXL M\nXXL XXL\nXXXXXS M\nL M\n","output":"<\n>\n>\n=\n<\n>\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Code\\CodeForces\\CompareTShirtSizes.cpp","group":"local","local":true}
