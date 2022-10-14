@@ -4,7 +4,9 @@
 using namespace std;
 int main()
 {
-    int n, val, d = 0, count = 0, valid;
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    int n, val, d, count = 0, valid;
     cin >> n;
     map<int, vector<int>> m;
     map<int, int> print;
@@ -15,43 +17,34 @@ int main()
     }
     for (auto it : m)
     {
-        if (it.second.size() > 1)
+        valid = 1, d = 0;
+        if (it.second.size() >= 2)
         {
             d = it.second[1] - it.second[0];
-            valid = 0, count = 0;
-            for (int i = 0; i < it.second.size() - 1; i++)
+            for (int i = 1; i < it.second.size() - 1; i++)
             {
                 if ((it.second[i + 1] - it.second[i]) != d)
                 {
+                    valid = 0;
                     break;
                 }
                 else
-                {
-                    valid++;
-                }
-            }
-            if ((valid + 1) == it.second.size())
-            {
-                count++;
-                print[it.first] = d;
+                    valid = 1;
             }
         }
-        else
+        if (valid == 1)
         {
-            print[it.first] = 0;
+            print[it.first] = d;
+            count++;
         }
     }
     if (count > 0)
     {
         cout << count << endl;
-        for (auto it : print)
-        {
-            cout << it.first << " " << it.second << endl;
-        }
+        for (auto it1 : print)
+            cout << it1.first << " " << it1.second << endl;
     }
     else
-    {
         cout << 0 << endl;
-    }
     return 0;
 }
