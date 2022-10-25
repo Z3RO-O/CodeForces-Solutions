@@ -28,6 +28,36 @@ const int I5 = 1e5;
 main
 {
     // Start Code
-
+    int n, money, pos = 1, i, R25(0), R50(0), R100(0); // R25 = 25Ruble and so on
+    sf("%d", &n);
+    for
+    {
+        sf("%d", &money);
+        if (money == 25)
+            R25++;
+        else if (money == 50)   //clerk gives 25 and get 50 ruble note
+        {
+            R25--;
+            R50++;
+        }
+        else
+        {
+            if (R50 > 0) //clerk gives 50 ruble note and one 25 ruble note if he has one 50 ruble note
+            {
+                R50--;
+                R25--;
+            }
+            else //clerk gives 25 ruble note 
+                R25 -= 3;
+        }
+        if (R25 < 0)
+        {
+            pos = 0;
+            pf("NO");
+            break;
+        }
+    }
+    if (pos == 1)
+        pf("YES");
     return 0;
 }
