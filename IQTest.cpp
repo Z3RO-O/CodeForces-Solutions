@@ -25,25 +25,39 @@ const int I9 = 1e9;
 const int I7 = 1e7;
 const int I5 = 1e5;
 
+int count(string s, char ch)
+{
+    int count = 0;
+    for (int i = 0; i < s.size(); i++)
+    {
+        if (s[i] == ch)
+            count++;
+    }
+    return count;
+}
+
 main
 {
     // Start Code
-    int n = 4, i, j, black(0), white(0);
-    char a[4][4];
+    int n = 4, i, j, pos = 1;
+    string a[4];
     for0
     {
-        for (j = 0; j < n; j++)
+        cin >> a[i];
+    }
+    for (int i = 0; i < 3; i++)
+    {
+        for (int j = 0; j < 3; j++)
         {
-            cin >> a[i][j];
-            if (a[i][j] == '#')
-                black++;
-            else
-                white++;
+            if (count(a[i].substr(j, 2) + a[i + 1].substr(j, 2), '#') != 2&&pos!=0) // when equal to 2 you cannot make it a square of 2X2 in just one move
+            {
+                cout << "YES";
+                pos = 0;
+                break;
+            }
         }
     }
-    if (white != black)
-        pf("YES");
-    else
-        pf("NO");
+    if (pos == 1)
+        cout << "NO";
     return 0;
 }
