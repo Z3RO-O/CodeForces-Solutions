@@ -25,30 +25,26 @@ using namespace std;
 const int I9 = 1e9;
 const int I7 = 1e7;
 const int I5 = 1e5;
-ll x[I5 + 10];
+
 main
 {
     // Start Code
-    int n, i, count = 0;
+    int n, max = 0, i;
+    string time;
+    map<string, int> m;
     sf("%d", &n);
+    cin.ignore();
     for0
     {
-        cin >> x[i];
+        getline(cin, time);
+        m[time]++;
     }
-    for0
+    max = (*m.begin()).second;
+    for (auto it : m)
     {
-        count = 0;
-        for (int j = 2; j <= x[i] / 2; j++)
-        {
-            if (x[i] % j == 0 && count <= 2)
-                count++;
-            if (count == 2)
-                break;
-        }
-        if (count == 1)
-            cout << "YES" << endl;
-        else
-            cout << "NO" << endl;
+        if (it.second > max)
+            max = it.second;
     }
+    pf("%d", max);
     return 0;
 }
