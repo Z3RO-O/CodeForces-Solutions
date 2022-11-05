@@ -27,32 +27,20 @@ const int I9 = 1e9;
 const int I7 = 1e7;
 const int I5 = 1e5;
 
-int withoutzero(int n)
-{
-    int result = 0, pow = 1, rem;
-    while (n > 0)
-    {
-        rem = n % 10;
-        n /= 10;
-        if (rem != 0)
-        {
-            result += rem * pow;
-            pow *= 10; // to send value to ones tens respective place
-        }
-    }
-    return result;
-}
 main
 {
-    int a, b;
-    cin >> a;
-    cin >> b;
-    int c = a + b, nozero;
-    nozero = withoutzero(a) + withoutzero(b);
-    if (nozero == withoutzero(c))
-        cout
-            << "YES" << endl;
-    else
-        cout << "NO" << endl;
+    string n;
+    cin >> n;
+    int sum, count = 0, l = n.length(), i;
+    while (l > 1)
+    {
+        sum = 0;
+        for (i = 0; i < l; i++)
+            sum += n[i] - '0';
+        n = to_string(sum);
+        l = n.size();
+        count++;
+    }
+    cout << count;
     return 0;
 }
