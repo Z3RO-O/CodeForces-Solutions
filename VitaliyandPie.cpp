@@ -4,7 +4,7 @@ using namespace std;
 #define main int main()
 #define sf scanf
 #define pf printf
-#define testcase while (t--)
+#define T while (t--)
 #define for0 for (i = 0; i < n; i++)
 #define for1 for (j = 1; j <= n; j++)
 #define vi vector<int>
@@ -23,28 +23,30 @@ const int I9 = 1e9;
 const int I7 = 1e7;
 const int I5 = 1e5;
 
+// Toh Chaliye Shuru karte...
 main
 {
-    int n, count = 0, a, b;
+    int n, count = 0;
+    string s;
     cin >> n;
-    vector<pair<int, int>> v(n);
+    cin >> s;
+    n = 2 * n - 2;
+    map<char, int> m;
+    char c;
     for (int i = 0; i < n; i++)
     {
-        cin >> a >> b;
-        v[i].first = a, v[i].second = b;
-    }
-    sort(v.begin(), v.end());
-    for (int i = 1; i < n; i++)
-    {
-        if (v[i - 1].second > v[i].second) // on checking adjacent it will automatically create a condition of higher quality laptops with lesser price
+        c = s[i];
+        if (islower(c))
+            m[c]++;
+        else
         {
-            count = 1;
-            break;
+            c = tolower(c);
+            if (m[c] > 0)
+                m[c]--;
+            else
+                count++;
         }
     }
-    if (count)
-        cout << "Happy Alex";
-    else
-        cout << "Poor Alex";
+    cout << count << endl;
     return 0;
 }
