@@ -11,7 +11,6 @@ using namespace std;
 #define for1 for (j = 1; j <= n; j++)
 #define vi vector<int>
 #define si set<int>
-#define usi unordered_set<int>
 #define vs vector<string>
 #define pii pair<int, int>
 #define mii map<int, int>
@@ -40,29 +39,14 @@ int dky8[] = {2, 2, -2, -2, 1, -1, 1, -1};*/
 // Toh Chaliye Shuru karte...
 main
 {
-    int n, a[110], b[110], i, j, count = 0, pos = 0;
-    cin >> n;
-    vector<pii> AB(n);
+    int n, i, x, l, r, left = 1, watch = 0;
+    cin >> n >> x;
     for0
     {
-        cin >> AB[i].first >> AB[i].second;
+        cin >> l >> r;
+        watch += r - (left + ((l - left) / x) * x) + 1; // ((l - left) / x) this gives how much time is skipped using x
+        left = r + 1;
     }
-    for (i = 0; i < n; i++)
-    {
-        pos = 0;
-        for (j = 0; j < n; j++)
-        {
-            if (AB[i].first == AB[j].second && i != j) // to check that any other bottle can open this bottle
-            {
-                pos = 0;
-                break;
-            }
-            else
-                pos = 1;
-        }
-        if (pos == 1)
-            count++;
-    }
-    cout << count;
+    cout << watch << endl;
     return 0;
 }
