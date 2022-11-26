@@ -2,19 +2,21 @@
 using namespace std;
 
 #define main int main()
-#define sf scanf
-#define pf printf
 #define T     \
+    int t;    \
     cin >> t; \
     while (t--)
+#define fast ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0)
 #define for0 for (i = 0; i < n; i++)
 #define for1 for (j = 1; j <= n; j++)
 #define vi vector<int>
 #define si set<int>
+#define usi unordered_set<int>
 #define vs vector<string>
 #define pii pair<int, int>
 #define mii map<int, int>
-#define ms map<string, int>
+#define mci map<char, int>
+#define msi map<string, int>
 #define pb push_back
 #define eb emplace_back
 #define ull unsigned long long
@@ -39,34 +41,15 @@ int dky8[] = {2, 2, -2, -2, 1, -1, 1, -1};*/
 // Toh Chaliye Shuru karte...
 main
 {
-    int t, n, i, j, count, l;
-    T
+    fast;
+    int n, i, m;
+    vs v;
+    string s;
+    for0
     {
-        cin >> n;
-        int v[n];
-        vi a;
-        cin >> v[0];
-        a.eb(v[0]);
-        for (i = 1; i < n; i++)
-        {
-            cin >> v[i];
-            if (v[i] != v[i - 1])
-                a.eb(v[i]);
-        }
-        l = a.size();
-        count = 0;
-        for (i = 1; i < l - 1; i++)
-        {
-            if ((a[i - 1] < a[i]) && (a[i] > a[i + 1]))
-            {
-                count++;
-                break;
-            }
-        }
-        if (count == 1)
-            cout << "NO" << endl;
-        else
-            cout << "YES" << endl;
+        cin >> s;
+        v.push_back(s);
     }
+    
     return 0;
 }

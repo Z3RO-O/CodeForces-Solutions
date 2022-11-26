@@ -5,16 +5,20 @@ using namespace std;
 #define sf scanf
 #define pf printf
 #define T     \
+    int t;    \
     cin >> t; \
     while (t--)
+#define fast ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0)
 #define for0 for (i = 0; i < n; i++)
 #define for1 for (j = 1; j <= n; j++)
 #define vi vector<int>
 #define si set<int>
+#define usi unordered_set<int>
 #define vs vector<string>
 #define pii pair<int, int>
 #define mii map<int, int>
-#define ms map<string, int>
+#define mci map<char, int>
+#define msi map<string, int>
 #define pb push_back
 #define eb emplace_back
 #define ull unsigned long long
@@ -39,34 +43,44 @@ int dky8[] = {2, 2, -2, -2, 1, -1, 1, -1};*/
 // Toh Chaliye Shuru karte...
 main
 {
-    int t, n, i, j, count, l;
-    T
+    int n, i, flag = 1, ct;
+    cin >> n;
+    vs v;
+    string s;
+    mci m;
+    for0
     {
-        cin >> n;
-        int v[n];
-        vi a;
-        cin >> v[0];
-        a.eb(v[0]);
-        for (i = 1; i < n; i++)
+        cin >> s;
+        for (int j = 0; j < n; j++)
+            m[s[j]]++;
+        v.push_back(s);
+    }
+    if (m.size() != 2)
+        cout << "NO" << endl;
+    else
+    {
+        char first = v[0][0];
+        ct = m[first];
+        for0
         {
-            cin >> v[i];
-            if (v[i] != v[i - 1])
-                a.eb(v[i]);
-        }
-        l = a.size();
-        count = 0;
-        for (i = 1; i < l - 1; i++)
-        {
-            if ((a[i - 1] < a[i]) && (a[i] > a[i + 1]))
+            if (first != v[i][i])
             {
-                count++;
+                flag = 0;
                 break;
             }
         }
-        if (count == 1)
-            cout << "NO" << endl;
-        else
+        for (int i = n - 1; i > -1; i--)
+        {
+            if (first != v[i][n - 1 - i])
+            {
+                flag = 0;
+                break;
+            }
+        }
+        if (flag == 1 && ct == (n * 2 - 1))
             cout << "YES" << endl;
+        else
+            cout << "NO" << endl;
     }
     return 0;
 }
